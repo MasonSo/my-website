@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mason So — Instructions For a New Body</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 1.75rem;
+      left: 2.5rem;
+      z-index: 50;
+    }
+
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 5.5rem 2.5rem 7rem;
+    }
+
+    .project-header {
+      margin-bottom: 2.5rem;
+    }
+
+    h1 {
+      font-family: 'Exo 2', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 3.8rem);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      margin: 0 0 0.75rem 0;
+      line-height: 1.1;
+    }
+
+    .meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.38);
+      letter-spacing: 0.04em;
+      flex-wrap: wrap;
+    }
+
+    .meta-dot {
+      color: rgba(255, 255, 255, 0.18);
+    }
+
+    .abstract {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.85;
+      margin: 0 0 2.5rem 0;
+    }
+
+    .abstract em {
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .media-video {
+      width: 100%;
+      margin-bottom: 2.5rem;
+    }
+
+    .media-video video {
+      width: 100%;
+      display: block;
+      border-radius: 3px;
+    }
+
+    .media-images {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+
+    .media-images img {
+      width: 100%;
+      display: block;
+      border-radius: 3px;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="home.html" class="back-link">← Back</a>
+  </nav>
+
+  <img src="images/logo.personal.png" class="site-logo" alt="Mason So" />
+
+  <div class="page">
+
+    <div class="project-header">
+      <h1>Instructions For a New Body</h1>
+      <div class="meta">
+        <span>2026</span>
+        <span class="meta-dot">·</span>
+        <span>Hybrid Media Installation</span>
+        <span class="meta-dot">·</span>
+        <span>Thesis</span>
+      </div>
+    </div>
+
+    <p class="abstract">
+      My thesis investigates the relationship between humans and technology through a hybrid media
+      video and physical installation. Drawing on Jean Baudrillard's theory of simulacra and
+      posthuman frameworks articulated by Rosi Braidotti and Donna Haraway, the project examines
+      how identity and agency are constructed, mediated, and reproduced within digital culture.
+      It questions the shifting power dynamics between humans and machines as individuals
+      increasingly concede agency to technological systems. Inspired by the strategies of artists
+      such as Hito Steyerl—particularly her work <em>How Not to Be Seen: A Fucking Didactic
+      Educational .MOV File</em>—the project adopts a self-reflexive, instructional video format
+      that embodies, rather than directly critiques, systems of surveillance, visibility, and
+      technological entanglement.
+    </p>
+
+    <div class="media-video">
+      <video controls playsinline preload="metadata">
+        <source src="images/instructions for a new body/instructions for a new body.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <p class="abstract">
+      By combining digital models, distorted footage, and a sculptural humanoid form augmented
+      with interactive electronics, the installation stages the instability and hybridity that
+      characterize contemporary subjectivity. A motion-sensor-activated video component and an
+      Arduino-based sensor system extend the project's exploration of mediation into the viewer's
+      physical encounter with the work, distorting the screen in response to movement. Through
+      the interplay of video, simulation, and material presence, the installation investigates
+      how reality is shaped through digital interfaces and how human identity becomes performative,
+      networked, and increasingly inseparable from technological systems.
+    </p>
+
+    <p class="abstract">
+      <em>Instructions For a New Body</em> explores how digital culture reshapes reality and human
+      identity through hybrid installation, examining the ways identity and agency are mediated
+      within contemporary technological systems. The work employs a self-reflexive instructional
+      format that foregrounds surveillance, visibility, and digital entanglement. Visibility and
+      obscurity structure the piece, as the still body becomes a vessel for transition into an
+      all-encompassing digital reality. Within this hyperreality, representations no longer refer
+      to a stable or original "real"; instead, identity becomes unstable, performative, and
+      continuously reconstructed through participation in networked systems.
+    </p>
+
+    <div class="media-images">
+      <img src="images/instructions for a new body/showcase.jpeg" alt="Instructions For a New Body" />
+      <img src="images/instructions for a new body/showcase 2.jpeg" alt="Instructions For a New Body" />
+      <img src="images/instructions for a new body/showcase 3.jpeg" alt="Instructions For a New Body" />
+    </div>
+
+  </div>
+
+</body>
+</html>

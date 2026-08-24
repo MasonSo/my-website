@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mason So</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    #contact-block {
+      position: fixed;
+      top: 1.75rem;
+      right: 2rem;
+      text-align: right;
+      z-index: 50;
+    }
+    #contact-block p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      color: rgba(255, 255, 255, 0.38);
+      margin: 0.2rem 0;
+      letter-spacing: 0.03em;
+    }
+
+    #layout {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: stretch;
+    }
+
+    #content-panel {
+      width: 46%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 3rem 4rem 3.5rem;
+      position: relative;
+      z-index: 20;
+    }
+
+    #name {
+      font-family: 'Exo 2', sans-serif;
+      font-size: clamp(1.6rem, 2.8vw, 2.8rem);
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      margin: 0 0 0.6rem 0;
+      line-height: 1;
+    }
+
+    #bio {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(0.62rem, 0.72vw, 0.78rem);
+      color: rgba(255, 255, 255, 0.45);
+      margin: 0 0 2.5rem 0;
+      line-height: 1.65;
+      max-width: 30ch;
+    }
+
+    #project-list {
+      margin-bottom: 2.25rem;
+    }
+
+    .resume-link {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      color: rgba(255, 255, 255, 0.28);
+      text-decoration: none;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+    .resume-link:hover {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    /* Right panel — image strip */
+    #reel-panel {
+      width: 54%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #reel-panel canvas {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    /* Gradient fade on left edge of reel */
+    #reel-fade {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 120px;
+      height: 100%;
+      background: linear-gradient(to right, #000 0%, transparent 100%);
+      z-index: 10;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="contact-block">
+    <p>masonwso6@gmail.com</p>
+    <p>661-309-3373</p>
+  </div>
+
+  <img src="images/logo.personal.png" class="site-logo" alt="Mason So" />
+
+  <div id="layout">
+
+    <div id="content-panel">
+      <h1 id="name">MASON SO</h1>
+      <p id="bio">Based in Los Angeles — 3D design, video production, creative code, and multidisciplinary art.</p>
+
+      <section id="project-list">
+
+        <a href="instructions-for-a-new-body.html" class="project-link"
+           data-medium="Hybrid Media Installation" data-role="Thesis"
+           data-thumb-type="image" data-thumb="images/instructions for a new body/showcase.jpeg">
+          <span class="project-year">2026</span>
+          <span class="project-title">Instructions For a New Body</span>
+          <span class="project-medium">Installation</span>
+        </a>
+
+        <a href="project.html?id=intro" class="project-link"
+           data-medium="Music Video" data-role="Producer / Assistant Director"
+           data-thumb-type="video" data-thumb="images/INTRO_finalcut.mp4">
+          <span class="project-year">2025</span>
+          <span class="project-title">INTRO</span>
+          <span class="project-medium">Music Video</span>
+        </a>
+
+        <a href="project.html?id=interweb" class="project-link"
+           data-medium="Creative Code" data-role=""
+           data-thumb-type="image" data-thumb="images/interweb.jpg">
+          <span class="project-year">2025</span>
+          <span class="project-title">interweb</span>
+          <span class="project-medium">Creative Code</span>
+        </a>
+
+        <a href="project.html?id=morphing-body" class="project-link"
+           data-medium="3D Animation" data-role=""
+           data-thumb-type="image" data-thumb="images/the desire of a morphing body.png">
+          <span class="project-year">2025</span>
+          <span class="project-title">Desire / Morphing Body</span>
+          <span class="project-medium">3D Animation</span>
+        </a>
+
+        <a href="project.html?id=makewaste" class="project-link"
+           data-medium="Stop Motion Animation" data-role="Art Director / Audio Designer"
+           data-thumb-type="video" data-thumb="images/Makewaste Final.mp4">
+          <span class="project-year">2024</span>
+          <span class="project-title">makewaste</span>
+          <span class="project-medium">Stop Motion</span>
+        </a>
+
+        <a href="project.html?id=hiftba" class="project-link"
+           data-medium="Creative Code" data-role=""
+           data-thumb-type="image" data-thumb="images/alone_growth.png">
+          <span class="project-year">2023</span>
+          <span class="project-title">HIFTBA / HIFTG</span>
+          <span class="project-medium">Creative Code</span>
+        </a>
+
+        <a href="project.html?id=you-havent-changed" class="project-link"
+           data-medium="Short Film" data-role="Director / Writer"
+           data-thumb-type="" data-thumb="">
+          <span class="project-year">2023</span>
+          <span class="project-title">You Haven't Changed</span>
+          <span class="project-medium">Short Film</span>
+        </a>
+
+        <a href="project.html?id=scents-of-home" class="project-link"
+           data-medium="Installation" data-role="Designer"
+           data-thumb-type="image" data-thumb="images/sense of home.JPG">
+          <span class="project-year">2023</span>
+          <span class="project-title">Scents of Home</span>
+          <span class="project-medium">Installation</span>
+        </a>
+
+      </section>
+
+      <a href="images/Resume - Mason So.pdf" target="_blank" class="resume-link">Resume ↗</a>
+    </div>
+
+    <div id="reel-panel">
+      <div id="reel-fade"></div>
+    </div>
+
+  </div>
+
+  <div id="projectTooltip">
+    <div id="tooltipMediaContainer"></div>
+    <div class="tooltip-text">
+      <p id="tooltipMedium"></p>
+      <p id="tooltipRole"></p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+  <script src="reel.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
