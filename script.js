@@ -7,7 +7,7 @@ const PROJECTS = {
     role: 'Producer, Assistant Director',
     description: 'Music video produced for Sophia Condon\'s "INTRO."',
     media: [
-      { type: 'video', src: 'images/INTRO_finalcut.mp4' }
+      { type: 'youtube', src: 'https://www.youtube.com/embed/oPn91V0FlvI?controls=0&rel=0&fs=0&iv_load_policy=3&disablekb=1&loop=1&playlist=oPn91V0FlvI' }
     ]
   },
   'interweb': {
@@ -27,7 +27,7 @@ const PROJECTS = {
     role: '',
     description: '',
     media: [
-      { type: 'video', src: 'images/the desire of a morphing body.mp4' },
+      { type: 'youtube', src: 'https://www.youtube.com/embed/oZ40YRlV6ag?controls=0&rel=0&fs=0&iv_load_policy=3&disablekb=1&loop=1&playlist=oZ40YRlV6ag' },
       { type: 'image', src: 'images/the desire of a morphing body.png' }
     ]
   },
@@ -38,7 +38,7 @@ const PROJECTS = {
     role: 'Art Director, Audio Designer',
     description: '',
     media: [
-      { type: 'video', src: 'images/Makewaste Final.mp4' }
+      { type: 'youtube', src: 'https://www.youtube.com/embed/3GNzh3k8VfY?controls=0&rel=0&fs=0&iv_load_policy=3&disablekb=1&loop=1&playlist=3GNzh3k8VfY' }
     ]
   },
   'hiftba': {
@@ -59,7 +59,7 @@ const PROJECTS = {
     role: 'Director, Writer',
     description: '',
     media: [
-      { type: 'video', src: "images/You Haven't Changed - PA Film Festival.mp4" }
+      { type: 'youtube', src: 'https://www.youtube.com/embed/56ziSG3tbCI?controls=0&rel=0&fs=0&iv_load_policy=3&disablekb=1&loop=1&playlist=56ziSG3tbCI' }
     ]
   },
   'scents-of-home': {
@@ -97,10 +97,19 @@ function renderProjectPage() {
 
   let mediaHTML = '';
   for (const m of project.media) {
-    if (m.type === 'video') {
+    if (m.type === 'youtube') {
       mediaHTML += `
         <div class="project-media-wrap">
-          <video controls autoplay loop muted playsinline>
+          <div class="video-embed">
+            <iframe src="${m.src}"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+        </div>`;
+    } else if (m.type === 'video') {
+      mediaHTML += `
+        <div class="project-media-wrap">
+          <video controls playsinline preload="metadata">
             <source src="${m.src}" type="video/mp4" />
           </video>
         </div>`;
