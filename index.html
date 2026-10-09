@@ -13,7 +13,7 @@
 
   <style>
     body {
-      background: #000;
+      background: #080808;
       color: #fff;
       overflow: hidden;
       height: 100vh;
@@ -24,7 +24,6 @@
       inset: 0;
       z-index: 0;
     }
-
     #particle-container canvas {
       display: block;
       position: absolute;
@@ -32,67 +31,101 @@
       left: 0;
     }
 
-    /* Dark scrim so text reads over the image reel */
+    /* Gradient: vivid at top, heavy at bottom for text legibility */
     #scrim {
       position: fixed;
       inset: 0;
       z-index: 5;
-      background: rgba(0, 0, 0, 0.68);
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.22) 0%,
+        rgba(0,0,0,0.45) 45%,
+        rgba(0,0,0,0.88) 78%,
+        rgba(0,0,0,0.97) 100%
+      );
       pointer-events: none;
     }
 
+    /* Overlay anchored to bottom */
     #overlay {
       position: fixed;
       inset: 0;
       z-index: 10;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
+      padding: 0 3.5rem 2.75rem;
       opacity: 0;
-      animation: fadeIn 1.4s ease 1.8s forwards;
+      transform: translateY(16px);
+      animation: revealUp 1.1s cubic-bezier(0.16,1,0.3,1) 0.7s forwards;
     }
 
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    #overlay-name {
-      font-family: 'Exo 2', sans-serif;
-      font-size: clamp(2.2rem, 5vw, 5.5rem);
-      font-weight: 300;
-      letter-spacing: 0.35em;
-      margin: 0 0 0.6rem 0;
-      text-align: center;
-      text-indent: 0.35em;
+    @keyframes revealUp {
+      to { opacity: 1; transform: none; }
     }
 
     #overlay-tagline {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(0.55rem, 0.85vw, 0.8rem);
-      letter-spacing: 0.22em;
-      color: rgba(255, 255, 255, 0.65);
-      margin: 0 0 3rem 0;
-      text-align: center;
-      text-indent: 0.22em;
+      font-size: clamp(0.48rem, 0.65vw, 0.68rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      margin: 0 0 1rem 0;
+    }
+
+    #name-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.1rem;
+      gap: 2rem;
+    }
+
+    #overlay-name {
+      font-family: 'Exo 2', sans-serif;
+      font-size: clamp(3rem, 7.5vw, 10.5rem);
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-indent: 0.3em;
+      margin: 0;
+      line-height: 1;
+      color: rgba(255,255,255,0.92);
+      flex-shrink: 0;
     }
 
     #enter-link {
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.65rem;
+      font-size: 0.58rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255,255,255,0.38);
       text-decoration: none;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      padding: 0.65rem 1.6rem 0.6rem;
-      text-indent: 0.22em;
-      transition: color 0.25s, border-color 0.25s;
+      padding-bottom: 0.12rem;
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+      transition: color 0.2s ease, border-color 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-bottom: 0.35rem;
+      align-self: flex-end;
+    }
+    #enter-link:hover {
+      color: rgba(255,255,255,0.88);
+      border-color: rgba(255,255,255,0.55);
     }
 
-    #enter-link:hover {
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.85);
+    @media (max-width: 640px) {
+      #overlay {
+        padding: 0 1.75rem 2.25rem;
+      }
+      #name-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+      }
+      #enter-link {
+        margin-bottom: 0;
+      }
     }
   </style>
 </head>
@@ -102,9 +135,11 @@
   <div id="scrim"></div>
 
   <div id="overlay">
-    <h1 id="overlay-name">MASON SO</h1>
-    <p id="overlay-tagline">3D Design &nbsp;·&nbsp; Video Production &nbsp;·&nbsp; Creative Code</p>
-    <a href="home.html" id="enter-link">Enter Portfolio</a>
+    <p id="overlay-tagline">3D Design &nbsp; Video Production &nbsp; Creative Code &nbsp; Multidisciplinary Art</p>
+    <div id="name-row">
+      <h1 id="overlay-name">MASON SO</h1>
+      <a href="home.html" id="enter-link">Enter &rarr;</a>
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>

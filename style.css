@@ -1,109 +1,124 @@
-*, *::before, *::after {
-  box-sizing: border-box;
+/* =====================================================
+   DESIGN TOKENS
+   ===================================================== */
+:root {
+  --bg:           #080808;
+  --border:       rgba(255,255,255,0.07);
+  --border-mid:   rgba(255,255,255,0.13);
+
+  --text-1:       rgba(255,255,255,0.90);
+  --text-2:       rgba(255,255,255,0.48);
+  --text-3:       rgba(255,255,255,0.20);
+
+  --font-display: 'Exo 2', sans-serif;
+  --font-body:    'Montserrat', sans-serif;
+
+  --ease-out:     cubic-bezier(0.16, 1, 0.3, 1);
+  --dur:          0.22s;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
+/* =====================================================
+   RESET
+   ===================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; }
 
-/* ---- Shared ---- */
+/* =====================================================
+   SHARED
+   ===================================================== */
 
 .site-logo {
   position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  max-width: clamp(50px, 6vw, 80px);
-  max-height: 8vh;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  max-width: clamp(40px, 4.5vw, 66px);
+  max-height: 6.5vh;
   z-index: 50;
-  opacity: 0.45;
-  transition: opacity 0.2s;
+  opacity: 0.22;
+  transition: opacity var(--dur) ease;
 }
-.site-logo:hover {
-  opacity: 0.8;
-}
+.site-logo:hover { opacity: 0.65; }
 
 .back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.4);
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  color: var(--text-3);
   text-decoration: none;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  transition: color 0.15s;
+  transition: color var(--dur) ease, transform var(--dur) var(--ease-out);
 }
 .back-link:hover {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-1);
+  transform: translateX(-3px);
 }
 
-/* ---- Home — project list ---- */
+/* =====================================================
+   HOME — project list
+   ===================================================== */
 
 .project-link {
   display: grid;
   grid-template-columns: 2.8rem 1fr auto;
   gap: 0.75rem;
   align-items: baseline;
-  color: white;
+  color: var(--text-1);
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(11px, 0.85vw, 14px);
-  padding: 0.6rem 0;
-  opacity: 0.7;
-  transition: opacity 0.15s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-family: var(--font-body);
+  font-size: clamp(11px, 0.87vw, 14px);
+  padding: 0.8rem 0;
+  opacity: 0.5;
+  border-bottom: 1px solid var(--border);
+  transition: opacity var(--dur) ease, transform var(--dur) var(--ease-out);
+  will-change: transform;
 }
-
-.project-link:last-child {
-  border-bottom: none;
-}
-
+.project-link:last-child { border-bottom: none; }
 .project-link:hover {
   opacity: 1;
+  transform: translateX(4px);
 }
-
 .project-link:hover .project-title {
   text-decoration: underline;
   text-underline-offset: 3px;
+  text-decoration-color: rgba(255,255,255,0.25);
 }
 
 .project-year {
-  color: rgba(255, 255, 255, 0.28);
-  font-size: 0.65em;
-  letter-spacing: 0.04em;
+  color: var(--text-3);
+  font-size: 0.6em;
+  letter-spacing: 0.05em;
+  transition: color var(--dur) ease;
 }
+.project-link:hover .project-year { color: var(--text-2); }
 
 .project-medium {
-  color: rgba(255, 255, 255, 0.32);
-  font-size: 0.65em;
+  color: var(--text-3);
+  font-size: 0.6em;
   text-align: right;
   letter-spacing: 0.04em;
   white-space: nowrap;
 }
 
-/* ---- Tooltip ---- */
+/* =====================================================
+   HOME — tooltip
+   ===================================================== */
 
 #projectTooltip {
   position: fixed;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.15s ease;
+  transition: opacity 0.12s ease;
   z-index: 200;
-  background: rgba(8, 8, 8, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 5px;
+  background: rgba(10,10,10,0.94);
+  border: 1px solid var(--border-mid);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border-radius: 0;
   overflow: hidden;
-  width: 240px;
+  width: 260px;
 }
-
-#projectTooltip.visible {
-  opacity: 1;
-}
+#projectTooltip.visible { opacity: 1; }
 
 #tooltipMediaContainer {
   width: 100%;
@@ -111,7 +126,6 @@ html, body {
   overflow: hidden;
   background: #0d0d0d;
 }
-
 #tooltipMediaContainer img,
 #tooltipMediaContainer video {
   width: 100%;
@@ -120,36 +134,29 @@ html, body {
   display: block;
 }
 
-.tooltip-text {
-  padding: 0.55rem 0.75rem;
-}
-
+.tooltip-text { padding: 0.6rem 0.8rem 0.65rem; }
 .tooltip-text p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.68rem;
+  font-family: var(--font-body);
+  font-size: 0.64rem;
   margin: 0;
   line-height: 1.5;
+  letter-spacing: 0.03em;
 }
+#tooltipMedium { color: var(--text-1); }
+#tooltipRole   { color: var(--text-2); }
 
-#tooltipMedium {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-#tooltipRole {
-  color: rgba(255, 255, 255, 0.38);
-}
-
-/* ---- Project page ---- */
+/* =====================================================
+   PROJECT PAGE
+   ===================================================== */
 
 .project-media-wrap {
   width: 100%;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
-
 .project-media-wrap video,
 .project-media-wrap img {
   width: 100%;
-  border-radius: 3px;
+  border-radius: 0;
   display: block;
 }
 
@@ -158,12 +165,10 @@ html, body {
   width: 100%;
   aspect-ratio: 16 / 9;
 }
-
 .video-embed iframe {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 3px;
 }

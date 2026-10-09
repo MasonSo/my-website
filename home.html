@@ -13,12 +13,13 @@
 
   <style>
     body {
-      background: #000;
+      background: #080808;
       color: #fff;
       overflow: hidden;
       height: 100vh;
     }
 
+    /* Contact — top right */
     #contact-block {
       position: fixed;
       top: 1.75rem;
@@ -26,14 +27,19 @@
       text-align: right;
       z-index: 50;
     }
-    #contact-block p {
+    #contact-block a {
+      display: block;
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.68rem;
-      color: rgba(255, 255, 255, 0.38);
-      margin: 0.2rem 0;
-      letter-spacing: 0.03em;
+      font-size: 0.57rem;
+      color: rgba(255,255,255,0.2);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.22rem;
+      transition: color 0.2s ease;
     }
+    #contact-block a:hover { color: rgba(255,255,255,0.62); }
 
+    /* Two-column fixed layout */
     #layout {
       position: fixed;
       inset: 0;
@@ -41,73 +47,86 @@
       align-items: stretch;
     }
 
+    /* LEFT — content */
     #content-panel {
-      width: 46%;
+      width: 44%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 5rem 3rem 4rem 3.5rem;
+      padding: 5rem 3.25rem 4rem 3.75rem;
       position: relative;
       z-index: 20;
     }
 
+    /* Name */
     #name {
       font-family: 'Exo 2', sans-serif;
-      font-size: clamp(1.6rem, 2.8vw, 2.8rem);
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      margin: 0 0 0.6rem 0;
+      font-size: clamp(2rem, 3.2vw, 3.8rem);
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-indent: 0.2em;
+      margin: 0 0 0.55rem 0;
       line-height: 1;
+      color: rgba(255,255,255,0.92);
     }
 
+    /* Bio */
     #bio {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(0.62rem, 0.72vw, 0.78rem);
-      color: rgba(255, 255, 255, 0.45);
+      font-size: clamp(0.67rem, 0.78vw, 0.82rem);
+      color: rgba(255,255,255,0.45);
       margin: 0 0 2.5rem 0;
-      line-height: 1.65;
+      line-height: 1.7;
       max-width: 30ch;
     }
 
-    #project-list {
-      margin-bottom: 2.25rem;
+    /* Thin rule above project list */
+    #project-list-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.52rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.15);
+      margin: 0 0 0.9rem 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 0.85rem;
     }
 
+    #project-list {
+      margin-bottom: 2rem;
+    }
+
+    /* Resume */
     .resume-link {
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.62rem;
-      color: rgba(255, 255, 255, 0.28);
+      font-size: 0.57rem;
+      color: rgba(255,255,255,0.22);
       text-decoration: none;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      transition: color 0.15s;
+      transition: color 0.18s ease;
     }
-    .resume-link:hover {
-      color: rgba(255, 255, 255, 0.65);
-    }
+    .resume-link:hover { color: rgba(255,255,255,0.68); }
 
-    /* Right panel — image strip */
+    /* RIGHT — reel */
     #reel-panel {
-      width: 54%;
+      width: 56%;
       position: relative;
       overflow: hidden;
     }
-
     #reel-panel canvas {
       display: block;
       position: absolute;
       top: 0;
       left: 0;
     }
-
-    /* Gradient fade on left edge of reel */
     #reel-fade {
       position: absolute;
       top: 0;
       left: 0;
-      width: 120px;
+      width: 140px;
       height: 100%;
-      background: linear-gradient(to right, #000 0%, transparent 100%);
+      background: linear-gradient(to right, #080808 0%, transparent 100%);
       z-index: 10;
       pointer-events: none;
     }
@@ -116,8 +135,8 @@
 <body>
 
   <div id="contact-block">
-    <p>masonwso6@gmail.com</p>
-    <p>661-309-3373</p>
+    <a href="mailto:masonwso6@gmail.com">masonwso6@gmail.com</a>
+    <a href="tel:+16613093373">661-309-3373</a>
   </div>
 
   <img src="images/logo.personal.png" class="site-logo" alt="Mason So" />
@@ -126,7 +145,9 @@
 
     <div id="content-panel">
       <h1 id="name">MASON SO</h1>
-      <p id="bio">Based in Los Angeles — 3D design, video production, creative code, and multidisciplinary art.</p>
+      <p id="bio">Based in Los Angeles. 3D design, video production, creative code, and multidisciplinary art.</p>
+
+      <p id="project-list-label">Selected Work</p>
 
       <section id="project-list">
 
@@ -196,7 +217,7 @@
 
       </section>
 
-      <a href="images/Resume - Mason So.pdf" target="_blank" class="resume-link">Resume ↗</a>
+      <a href="images/Resume - Mason So.pdf" target="_blank" class="resume-link">Resume &nearr;</a>
     </div>
 
     <div id="reel-panel">
@@ -216,5 +237,35 @@
   <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
   <script src="reel.js" defer></script>
   <script src="script.js" defer></script>
+
+  <script>
+    // Stagger project links in on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const links = [...document.querySelectorAll('.project-link')];
+      links.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(7px)';
+      });
+
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        links.forEach((el, i) => {
+          const delay = 480 + i * 65;
+          el.style.transition = `opacity 0.65s cubic-bezier(0.16,1,0.3,1) ${delay}ms, transform 0.65s cubic-bezier(0.16,1,0.3,1) ${delay}ms`;
+          el.style.opacity = '';
+          el.style.transform = '';
+        });
+
+        // Clear inline styles after animations so hover states work cleanly
+        const clearAt = 480 + (links.length - 1) * 65 + 700;
+        setTimeout(() => {
+          links.forEach(el => {
+            el.style.transition = '';
+            el.style.opacity = '';
+            el.style.transform = '';
+          });
+        }, clearAt);
+      }));
+    });
+  </script>
 </body>
 </html>
