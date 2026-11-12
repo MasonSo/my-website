@@ -4,7 +4,7 @@ const PROJECTS = {
     title: 'INTRO',
     year: '2025',
     medium: 'Music Video',
-    role: 'Producer, Assistant Director',
+    role: 'Producer, Assistant Director, Editor',
     description: 'Music video produced for Sophia Condon\'s "INTRO."',
     media: [
       { type: 'youtube', src: 'https://www.youtube.com/embed/oPn91V0FlvI?controls=0&rel=0&fs=0&iv_load_policy=3&disablekb=1&loop=1&playlist=oPn91V0FlvI' }
