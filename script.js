@@ -35,7 +35,7 @@ const PROJECTS = {
     title: 'makewaste',
     year: '2024',
     medium: 'Stop Motion Animation',
-    role: 'Art Director, Audio Designer',
+    role: 'Art Director, Audio Designer, Editor',
     description: '',
     media: [
       { type: 'youtube', src: 'https://www.youtube.com/embed/3GNzh3k8VfY?controls=0&rel=0&fs=0&iv_load_policy=3&disablekb=1&loop=1&playlist=3GNzh3k8VfY' }
